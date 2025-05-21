@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Pesagem Estática</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container" id="app" v-cloak>
+    <h1 class="text-center">Pesagem Estática - HAENNI</h1>
+
+    <div class="text-center mt-3">
+      <button class="btn btn-success btn-lg" @click="startMeasurement" :disabled="started">Iniciar Medição</button>
+      <button class="btn btn-primary btn-lg" @click="registerAxle" :disabled="!started || isWeighing">Registrar Eixo</button>
+      <button class="btn btn-danger btn-lg" @click="endMeasurement" :disabled="!started">Finalizar Medição</button>
+      <button class="btn btn-default btn-lg" @click="downloadJSON" :disabled="!axles.length">Salvar como JSON</button>
+    </div>
+
+    <div class="text-center mt-3" v-if="started">
+      <h3 class="text-info">Peso Atual</h3>
+      <p>Balança Esquerda: <strong>{{ currentLoadLeft }} kg</strong></p>
+      <p>Balança Direita: <strong>{{ currentLoadRight }} kg</strong></p>
+    </div>
+
+    <table class="table table-bordered table-striped mt-3" v-if="axles.length">
+      <thead>
+        <tr>
+          <th># Eixo</th>
+          <th>Peso Esquerdo (kg)</th>
+          <th>Peso Direito (kg)</th>
+          <th>Total do Eixo (kg)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(axle, index) in axles" :key="index">
+          <td>{{ index + 1 }}</td>
+          <td>{{ axle.left }}</td>
+          <td>{{ axle.right }}</td>
+          <td><strong>{{ axle.total }}</strong></td>
+        </tr>
+        <tr class="info">
+          <th colspan="3">Peso Total</th>
+          <th>{{ totalWeight }} kg</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
