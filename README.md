@@ -62,5 +62,6 @@ Para dúvidas, sugestões ou colaborações:
 
 - GitHub: [@gilsonfiho](https://github.com/gilsonfiho)
 - Email: gilson405719@hotmail.com
+- Linkedin: https://www.linkedin.com/in/gilson-almeida-608b62178
 ---
 
