@@ -3,6 +3,9 @@
 
 Este projeto oferece uma interface interativa desenvolvida com **Vue.js** e **Bootstrap**, permitindo a simulação de registros de peso em balanças estáticas (esquerda e direita), totalizando os pesos de forma eficiente.
 
+![Tela de demonstração](assets/tela.png)
+
+
 ---
 
 ## ⚙️ Funcionalidades
